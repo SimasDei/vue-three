@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :title="title"/>
-    <img alt="Vue logo" src="./assets/logo.png">
+    <Header :title="title" v-if="isTrue"/>
+    <img v-else alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -17,7 +17,8 @@ export default {
     Header
   },
   data: () => ({
-    title: "Vue Movie DB"
+    title: "Vue Movie DB",
+    isTrue: true
   })
 };
 </script>
