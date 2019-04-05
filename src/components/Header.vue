@@ -2,10 +2,6 @@
   <header>
     <router-link to="/">
       <h1>{{title}}</h1>
-      <transition name="fade">
-        <h1 v-if="show">Animation</h1>
-      </transition>
-      <button @click="show = !show">Toggle</button>
     </router-link>
   </header>
 </template>
@@ -42,14 +38,5 @@ h1 {
 a {
   text-decoration: none;
   color: #fff;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s ease;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: scale(0);
 }
 </style>
