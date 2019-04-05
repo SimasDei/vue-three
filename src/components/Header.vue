@@ -9,6 +9,16 @@ export default {
   name: "Header",
   props: {
     title: String
+  },
+  data() {
+    return {
+      name: "Dude"
+    };
+  },
+  computed: {
+    newTitle: function() {
+      return this.name;
+    }
   }
 };
 </script>
