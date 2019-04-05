@@ -9,10 +9,11 @@
 <script>
 import Movie from "./Movie";
 
-const API = {
+export const API = {
   key: "ab1108ff64d84d869773eb7692b0749f",
   root_url: "https://api.themoviedb.org",
-  discover: "discover/movie?sort_by=popularity.desc"
+  discover: "discover/movie?sort_by=popularity.desc",
+  backdrop_path: "http://image.tmdb.org/t/p/w1280"
 };
 export default {
   name: "MovieList",
@@ -54,6 +55,6 @@ ul {
   padding: 1rem;
   margin: 0;
   grid-row-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 </style>
