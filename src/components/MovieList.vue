@@ -1,14 +1,13 @@
 <template>
-  <div>{{movie.title}}</div>
+  <ul>
+    <li v-for="movie in movies" :key="movie.title">
+      <Movie :movie="movie"/>
+    </li>
+  </ul>
 </template>
 
 <script>
-/**
- * @API - The Movie DB
- * @key - ab1108ff64d84d869773eb7692b0749f
- * @Root_url - https://api.themoviedb.org
- * @example - https://api.themoviedb.org/3/movie/550?api_key=${key}
- */
+import Movie from "./Movie";
 
 const API = {
   key: "ab1108ff64d84d869773eb7692b0749f",
@@ -19,7 +18,7 @@ export default {
   name: "MovieList",
   data() {
     return {
-      movie: {}
+      movies: []
     };
   },
   created: function() {
@@ -27,7 +26,7 @@ export default {
   },
   methods: {
     fetchData: async function() {
-      const randomPage = max => Math.floor(Math.random() * Math.floor(max));
+      const randomPage = max => Math.floor(Math.random() * Math.floor(max) + 1);
       try {
         const url = "".concat(
           `${API.root_url}/3/${API.discover}&api_key=${
@@ -35,15 +34,26 @@ export default {
           }&page=${randomPage(10)}`
         );
         const res = await fetch(url);
-        const movie = await res.json();
-        this.movie = movie;
+        const movies = await res.json();
+        this.movies = movies.results;
       } catch (error) {
         throw new Error(error);
       }
     }
+  },
+  components: {
+    Movie
   }
 };
 </script>
 
-<style>
+<style scoped>
+ul {
+  display: grid;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
 </style>
