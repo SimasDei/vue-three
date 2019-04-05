@@ -1,8 +1,10 @@
 <template>
   <div class="movie__container" :style="styles">
-    <h1>{{movie.title}}</h1>
-    <h3>Release Date: {{movie.release_date}}</h3>
-    <p>{{movie.overview}}</p>
+    <div class="movie__info">
+      <h1>{{movie.title}}</h1>
+      <h3>Release Date: {{movie.release_date}}</h3>
+      <p>{{movie.overview}}</p>
+    </div>
   </div>
 </template>
 
@@ -44,5 +46,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.movie__container {
+  position: relative;
+  padding-top: 50vh;
+  background-size: cover !important;
+}
+.movie__info {
+  background: #222;
+  padding: 2rem 10%;
+}
 </style>
