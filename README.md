@@ -1,4 +1,4 @@
-# vue-three
+## vue-three
 
 ## Project setup
 ```
